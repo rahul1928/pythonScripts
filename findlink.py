@@ -3,9 +3,11 @@ from BeautifulSoup import BeautifulSoup
 import urllib2
 import re
 
-html_page = urllib2.urlopen("https://www.1mg.com/drugs-ailments")
+import sys
+
+url = str(sys.argv[1])
+print url
+html_page = urllib2.urlopen(url)
 soup = BeautifulSoup(html_page)
 for link in soup.findAll('a'):
     print (link.get('href'))
-
-
